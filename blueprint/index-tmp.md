@@ -10,7 +10,7 @@ summary: |
 ---
 
 ## Scenario
-The purpose of this blueprint is to provide Terraform configuration for creating a Genesys Cloud EventBridge integration and corresponding AWS infrastructure to write events from the integration into S3. This solution can be extended to use Athena to analyze the data in S3, or the S3 destination could be replaced with OpenSearch to use the many features it provides for text-search, analytics, business intelligence, and so on.
+This Genesys Cloud Developer Blueprint provides an example of a complete Terraform configuration that creates a Genesys Cloud EventBridge integration and writes events from the integration into S3. This solution can be extended to use Athena to analyze the data in S3, or the S3 destination could be replaced with OpenSearch to use the many features it provides for text-search, analytics, business intelligence, and so on.
 
 ## Solution
 
@@ -28,7 +28,7 @@ A scalable, serverless event bus that streams real-time data to selected targets
 ## Solution components
 
 * [Genesys Cloud CX](https://www.genesys.com/genesys-cloud "Goes to Genesys Cloud CX page") - A suite of Genesys Cloud services for enterprise-grade communications, collaboration, and contact center management.
-* [Terraform](https://www.terraform.io/ "Goes to the Terraform page") - An open-source infrastructure as code software tool that provides a consistent CLI workflow to manage hundreds of cloud services. Terraform codifies cloud APIs into declarative configuration files.
+* [Terraform](https://www.terraform.io/ "Goes to the Terraform page") - An open-source framework for managing cloud- and prem-based infrastructure services via a CLI.  
 * [CX as Code](https://developer.genesys.cloud/api/rest/CX-as-Code/ "Goes to the CX as Code page") - A tool to declaratively manage Genesys Cloud resources and configuration across organizations using Terraform.
 * [AWS Terraform Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs "Goes to the AWS Terraform Provider page") - Life cycle management of AWS resources, including EC2, Lambda, EKS, ECS, VPC, S3, RDS, DynamoDB, and more.
 * [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "Goes to the Amazon EventBridge page") - A scalable, serverless event bus that streams real-time data to selected targets based on custom routing rules.
