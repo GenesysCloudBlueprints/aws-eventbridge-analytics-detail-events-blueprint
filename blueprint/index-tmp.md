@@ -29,16 +29,16 @@ A scalable, serverless event bus that streams real-time data to selected targets
 
 * [Genesys Cloud CX](https://www.genesys.com/genesys-cloud "Goes to Genesys Cloud CX page") - A suite of Genesys Cloud services for enterprise-grade communications, collaboration, and contact center management.
 * [Terraform](https://www.terraform.io/ "Goes to the Terraform page") - An open-source framework for managing cloud- and prem-based infrastructure services via a CLI.  
-* [CX as Code](https://developer.genesys.cloud/api/rest/CX-as-Code/ "Goes to the CX as Code page") - A tool to declaratively manage Genesys Cloud resources and configuration across organizations using Terraform.
-* [AWS Terraform Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs "Goes to the AWS Terraform Provider page") - Life cycle management of AWS resources, including EC2, Lambda, EKS, ECS, VPC, S3, RDS, DynamoDB, and more.
+* [CX as Code](https://developer.genesys.cloud/api/rest/CX-as-Code/ "Goes to the CX as Code page") - A Genesys Cloud Terraform provider that provides a command line interface for declaring core Genesys Cloud objects.
+* [AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs "Goes to the AWS Terraform Provider page") - A Terraform service that manages the life cycle AWS resources, including EC2, Lambda, EKS, ECS, VPC, S3, RDS, DynamoDB, and more.
 * [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "Goes to the Amazon EventBridge page") - A scalable, serverless event bus that streams real-time data to selected targets based on custom routing rules.
 
 ## Prerequisites
 
 ### Specialized knowledge
 
-* AWS Cloud Practitioner-level knowledge of AWS IAM, AWS EventBridge, AWS Kinesis and AWS S3
-* Familiarity with Terraform or similar Infrastructure as Code tools
+* AWS Cloud Practitioner-level knowledge of AWS IAM, AWS EventBridge, AWS Kinesis, and AWS S3
+* Experience using Terraform or similar infrastructure-as-code tools
 
 ### Genesys Cloud account
 
@@ -48,35 +48,34 @@ A scalable, serverless event bus that streams real-time data to selected targets
 * An administrator account with permissions to access the following services:
   * AWS Identity and Access Management (IAM)
   * AWS Lambda
-* AWS credentials. For more information about setting up your AWS credentials on your local machine, see: [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html "Goes to the Shared AWS config and credentials files article") on the AWS page.
+* AWS credentials. For more information about setting up your AWS credentials on your local machine see, [Shared AWS config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html "Goes to the Shared AWS config and credentials files article") in the AWS documentation.
 
 ### Third-party software
 
-* Terraform version 1.0.0 or later. For more information, see: [Download Terraform](https://www.terraform.io/downloads "Goes to the Download Terraform Windows binary download page") on the Terraform website.
+* Terraform version 1.0.0 or later. For more information see, [Download Terraform](https://www.terraform.io/downloads "Goes to the Download Terraform page") on the Terraform website.
 
 ## Implementation steps
 
 * [Clone the repository that contains the project files](#clone-the-repository-that-contains-the-project-files "Goes to the Clone the repository that contains the project files section")
-* [Set up your AWS and Genesys Cloud Credentials](#setup-your-aws-and-genesys-cloud-credentials "Goes to the Setup your AWS and Genesys Cloud Credentials section")
+* [Set up your AWS and Genesys Cloud credentials](#setup-your-aws-and-genesys-cloud-credentials "Goes to the Set up your AWS and Genesys Cloud credentials section")
 * [Edit the configuration files](#edit-the-configuration-files  "Goes to the Edit the configuration files section")
 * [Deploy the application](#deploy-the-application "Goes to the Deploy the application section")
 * [Initiate a conversation](#initiate-a-conversation "Goes to the Initiate a conversation section")
 * [View S3 bucket contents](#view-s3-bucket-contents "Goes to the View S3 bucket contents section")
-* [Next steps](#next-steps "Goes to the Next steps section")
 
 ### Clone the repository that contains the project files
 
 Clone the [aws-eventbridge-analytics-detail-events-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-analytics-detail-events-blueprint "Goes to the aws-eventbridge-analytics-detail-events-blueprint") on the GitHub repository page.
 
-### Set up your AWS and Genesys Cloud Credentials
+### Set up your AWS and Genesys Cloud credentials
 
-To run this project using the AWS and Genesys Cloud Terraform provider, you must open a terminal window, set the following environment variables, and then run Terraform in the window where the following environment variables are set:
+To run this project using the AWS and Genesys Cloud Terraform provider, open a terminal window, set the following environment variables, and then run Terraform in the window where the following environment variables are set:
 
 * `GENESYSCLOUD_OAUTHCLIENT_ID` - This environment variable is the Genesys Cloud client credential grant Id that CX as Code performs. 
 * `GENESYSCLOUD_OAUTHCLIENT_SECRET` - This environment variable is the Genesys Cloud client credential secret that CX as Code performs. 
 * `GENESYSCLOUD_REGION` - This environment variable is the Genesys Cloud region in which your organization is located.
-* `AWS_ACCESS_KEY_ID` - You must setup the AWS Access Key in your Amazon account to allow the AWS Terraform provider to act against your account.
-* `AWS_SECRET_ACCESS_KEY` - You must setup this environment variable in your Amazon account to allow the AWS Terraform provider to act against your account.
+* `AWS_ACCESS_KEY_ID` - Set up the AWS Access Key in your Amazon account to allow the AWS Terraform provider to act against your account.
+* `AWS_SECRET_ACCESS_KEY` - Set up this environment variable in your Amazon account to allow the AWS Terraform provider to act against your account.
 
 **Note:** The Genesys Cloud OAuth Client was given the master admin role for this project. 
 
@@ -92,7 +91,7 @@ To run this project using the AWS and Genesys Cloud Terraform provider, you must
 terraform init
 ```
 
-3. Run the following command to deploy the application. Enter 'yes' when prompted to apply the changeset:
+3. To deploy the application, run the following command. To apply the changeset, enter 'yes' when prompted:
 
 ```
 terraform apply
@@ -100,13 +99,13 @@ terraform apply
 
 ### Initiate a conversation
 
-There are several ways to initiate a conversation to generate detailed events for this integration. The easiest way is to follow the [Web Chat Dev Tool Guide](https://developer.genesys.cloud/guides/quickstarts/developer-tools-web-chats) to use the [Web Chat Dev Tool](https://developer.genesys.cloud/developer-tools/#/webchat). 
+There are several ways to initiate a conversation to generate detailed events for this integration. The easiest way is to use the [Web Chat Dev Tool](https://developer.genesys.cloud/developer-tools/#/webchat). For instructions on how to do this, see the [Web Chat Dev Tool Guide](https://developer.genesys.cloud/guides/quickstarts/developer-tools-web-chats).
 
 If you follow the guide, step 6 is not necessary to start a web chat.
 
 ### View S3 bucket contents
 
-The buffering interval has been set to 60 seconds, the lowest possible value. For this reason, it takes at least 60 seconds for the subscribed conversation detail events to be written to the bucket sometimes; this takes a few minutes.
+The buffering interval has been set to 60 seconds, which is the lowest possible value. Therefore it takes at least 60 seconds for the subscribed conversation detail events to be written to the bucket. Sometimes this takes a few minutes.
 
 After 60 seconds has elapsed from initiating the conversation, view the bucket contents in the AWS console. The bucket name is `conversation-detail-events-bucket` if `s3_bucket_name` in `blueprint/terraform/terraform.tfvars` has not changed. The events are stored in a file under `conversation-detail-events/YYYY/MM/DD/HH/`.
 
