@@ -42,17 +42,17 @@ A scalable, serverless event bus that streams real-time data to selected targets
 
 ### Genesys Cloud account
 
-* A Genesys Cloud license. For more information, see [Genesys Cloud pricing](https://www.genesys.com/pricing "Goes to the Genesys Cloud pricing page") on the Genesys Cloud website.
+* A Genesys Cloud license. For more information see, [Genesys Cloud pricing](https://www.genesys.com/pricing "Goes to the Genesys Cloud pricing page") on the Genesys Cloud website.
 
 ### AWS user account  
-* An administrator account with permissions to access the following services:
+* An administrator account with permissions to access the following services.
   * AWS Identity and Access Management (IAM)
   * AWS Lambda
 * AWS credentials. For more information about setting up your AWS credentials on your local machine, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html "Goes to the Shared AWS config and credentials files article") on the AWS page.
 
 ### Third-party software
 
-* Terraform version 1.0.0 or later. For more information, see [Download Terraform](https://www.terraform.io/downloads "Goes to the Download Terraform Windows binary download page") on the Terraform website.
+* Terraform version 1.0.0 or later. For more information see, [Download Terraform](https://www.terraform.io/downloads "Goes to the Download Terraform Windows binary download page") on the Terraform website.
 
 ## Implementation steps
 
@@ -69,7 +69,7 @@ Clone the [aws-eventbridge-analytics-detail-events-blueprint](https://github.com
 
 ### Set up your AWS and Genesys Cloud credentials
 
-To run this project using the AWS and Genesys Cloud Terraform provider, open a terminal window, set the following environment variables, and then run Terraform in the window where the following environment variables are set:
+To run this project using the AWS and Genesys Cloud Terraform provider, open a terminal window, set the following environment variables, and then run Terraform in the window where the following environment variables are set.
 
 * `GENESYSCLOUD_OAUTHCLIENT_ID` - This environment variable is the Genesys Cloud client credential grant Id that CX as Code performs. 
 * `GENESYSCLOUD_OAUTHCLIENT_SECRET` - This environment variable is the Genesys Cloud client credential secret that CX as Code performs. 
@@ -85,13 +85,13 @@ To run this project using the AWS and Genesys Cloud Terraform provider, open a t
 
 ### Deploy the application
 
-2. From the repo root, run the following command to initialize the Terraform providers:
+2. From the repo root, run the following command to initialize the Terraform providers.
 
 ```
 terraform init
 ```
 
-3. To deploy the application, run the following command. To apply the changeset, enter 'yes' when prompted:
+3. To deploy the application, run the following command. To apply the changeset, enter 'yes' when prompted.
 
 ```
 terraform apply
@@ -99,7 +99,7 @@ terraform apply
 
 ### Initiate a conversation
 
-There are several ways to initiate a conversation to generate detailed events for this integration. The easiest way is to use the [Web Chat Dev Tool](https://developer.genesys.cloud/developer-tools/#/webchat). For instructions on how to do this, see the [Web Chat Dev Tool Guide](https://developer.genesys.cloud/guides/quickstarts/developer-tools-web-chats).
+There are several ways to initiate a conversation to generate detailed events for this integration. The easiest way is to use the [Web Chat Dev Tool](https://developer.genesys.cloud/developer-tools/#/webchat). For instructions on how to do this see, [Web Chat Dev Tool Guide](https://developer.genesys.cloud/guides/quickstarts/developer-tools-web-chats).
 
 If you follow the guide, skip step 6.
 
