@@ -10,6 +10,7 @@ This Genesys Cloud Developer Blueprint provides an example of a complete Terrafo
 ---
 
 ## Scenario
+
 This Genesys Cloud Developer Blueprint provides an example of a complete Terraform configuration that creates a Genesys Cloud EventBridge integration and writes events from the integration into S3. This solution can be extended to use Athena to analyze the data in S3, or the S3 destination could be replaced with OpenSearch to use the many features it provides for text-search, analytics, business intelligence, and so on.
 
 ## Solution
@@ -44,7 +45,8 @@ A scalable, serverless event bus that streams real-time data to selected targets
 
 * A Genesys Cloud license. For more information see, [Genesys Cloud pricing](https://www.genesys.com/pricing "Goes to the Genesys Cloud pricing page") on the Genesys Cloud website.
 
-### AWS user account  
+### AWS user account
+
 * An administrator account with permissions to access the following services.
   * AWS Identity and Access Management (IAM)
   * AWS Lambda
